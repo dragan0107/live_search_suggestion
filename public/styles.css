@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.topContainer {
+    background-color: #DDDDDD;
+    text-align: center;
+    padding: 3% 2%;
+}
+
+.title {
+    font-size: 3rem;
+    font-family: monospace;
+}
+
+#searchBar {
+    margin-top: 1%;
+    width: 500px;
+    padding: 1%;
+    border-radius: 20px;
+    border: 0;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+    font-size: 1.5rem;
+}

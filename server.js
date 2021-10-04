@@ -3,10 +3,21 @@ const mongoose = require('mongoose');
 const Fruit = require('./model/fruitModel');
 const app = express();
 
+mongoose.connect('mongodb://localhost:27017/fruitLiveSearch', { useNewUrlParser: true, useUnifiedTopology: true }, () => {
+    console.log('Connected to database!');
+});
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
+
 
 app.get('/', (req, res) => {
-    res.send('henlo!')
+    res.sendFile(`${__dirname}/views/index.html`);
 });
+
+app.post('/fruitSearch', (req, res) => {
+    console.log(req.body.fruitName);
+})
 
 
 

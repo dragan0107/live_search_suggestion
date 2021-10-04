@@ -15,8 +15,10 @@ app.get('/', (req, res) => {
     res.sendFile(`${__dirname}/views/index.html`);
 });
 
-app.post('/fruitSearch', (req, res) => {
-    console.log(req.body.fruitName);
+app.post('/fruitSearch', async(req, res) => {
+    let fruitQuery = req.body.fruitExample.trim();
+    let results = await Fruit.find({ name: { $regex: new RegExp('^' + fruitQuery + '.*', 'i') } }).exec();
+    res.send({ foundValues: results })
 })
 
 

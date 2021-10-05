@@ -18,8 +18,8 @@ app.get('/', (req, res) => {
 app.post('/fruitSearch', async(req, res) => {
     let fruitQuery = req.body.fruitExample.trim();
     let results = await Fruit.find({ name: { $regex: new RegExp('^' + fruitQuery + '.*', 'i') } }).exec();
-    res.send({ foundValues: results })
-})
+    res.send({ foundValues: results });
+});
 
 
 

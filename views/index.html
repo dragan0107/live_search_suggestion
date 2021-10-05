@@ -14,17 +14,39 @@
         <h1 class="title">Live Search Suggestion</h1>
     </div>
     <input type="text" id="searchBar" onkeyup="getData(this)">
+    <div class="resultsDiv">
+        <section id="searchResults">
+
+        </section>
+    </div>
+
     <script>
         function getData(e) {
+            let searchRes = document.getElementById('searchResults');
             fetch('/fruitSearch', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    fruitExample: e.value
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        fruitExample: e.value
+                    })
                 })
-            }).then(res => res.json()).then(data => console.log(data.foundValues))
+                .then(res => res.json())
+                .then(data => {
+                    let result = data.foundValues;
+                    searchRes.innerHTML = '';
+                    if (result.length < 1) {
+                        searchRes.innerHTML = '<p>No results found!</p>';
+                        return;
+                    }
+                    result.forEach((el, index) => {
+                        if (index > 0) {
+                            searchRes.innerHTML += '<hr>'
+                        }
+                        searchRes.innerHTML += `<p>${el.name}</p>`
+                    })
+                });
         }
     </script>
 </body>

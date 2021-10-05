@@ -17,6 +17,7 @@
 }
 
 #searchBar {
+    text-align: left;
     margin-top: 1%;
     width: 500px;
     padding: 1%;
@@ -31,8 +32,8 @@
 }
 
 #searchResults {
-    margin: 0 40%;
-    text-align: center;
+    margin: 0 38%;
+    text-align: left;
 }
 
 hr {
@@ -41,5 +42,8 @@ hr {
 }
 
 p {
+    font-size: 1.1rem;
+    font-weight: lighter;
+    text-align: left;
     margin: 10px 0;
 }

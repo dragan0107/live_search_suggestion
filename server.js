@@ -12,13 +12,13 @@ app.use(express.static('public'));
 
 
 app.get('/', (req, res) => {
-    res.sendFile(`${__dirname}/views/index.html`);
+    res.sendFile(`${__dirname}/views/index.html`); // We serve our main html file.
 });
 
 app.post('/fruitSearch', async(req, res) => {
-    let fruitQuery = req.body.fruitExample.trim();
-    let results = await Fruit.find({ name: { $regex: new RegExp('^' + fruitQuery + '.*', 'i') } }).exec();
-    res.send({ foundValues: results });
+    let fruitQuery = req.body.fruitExample.trim(); // we trim for spaces before and after the input.
+    let results = await Fruit.find({ name: { $regex: new RegExp('^' + fruitQuery + '.*', 'i') } }).exec(); // This regex help us to make case insensitive queries,and it will also return every result after the initial letter(s)
+    res.send({ foundValues: results }); // We send response obj to the client, and results under the foundValues property.
 });
 
 

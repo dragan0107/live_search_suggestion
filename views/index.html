@@ -53,10 +53,11 @@
                             }
                             searchRes.innerHTML += `<p>${el.name}</p>` // We keep concatenating new paragraphs to the section.
                         })
-                        return;
                     });
 
+                return;
             }
+            searchRes.innerHTML = ''; // In case we put some numbers or other characters, we reset the section to empty.
         }
     </script>
 </body>

@@ -1,4 +1,5 @@
 # live_search_suggestion
+
 Live database search functionality. Built with Node.JS (express.js) and MongoDB (mongoose).
 This is one of the more important functionalities on any website or web app.
 

@@ -8,7 +8,7 @@ mongoose.connect('mongodb://localhost:27017/fruitLiveSearch', { useNewUrlParser:
 });
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(`public`));
+app.use(express.static(`public`)); // All static files for the browser and the client side will be read from 'public' folder.
 
 
 app.get('/', (req, res) => {
